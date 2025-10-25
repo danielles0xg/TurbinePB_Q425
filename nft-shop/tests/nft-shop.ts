@@ -13,7 +13,7 @@ const METADATA_PROGRAM_ID = new PublicKey("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt
 import { assert } from "chai";
 
 describe("nft-shop", () => {
-  // Configure the client to use the local cluster
+  // TODO : use surfpool or mainnet-beta
   const provider = anchor.AnchorProvider.env();
   anchor.setProvider(provider);
 
@@ -206,7 +206,7 @@ describe("nft-shop", () => {
       assert.equal(
         currentCount,
         initialCounterValue + 2,
-        `Counter should increment by 2 after first NFT (from ${initialCounterValue} to ${initialCounterValue + 2})`
+        `Counter should increment by 2 after first NFT `
       );
 
       // Verify NFT was minted
@@ -277,7 +277,7 @@ describe("nft-shop", () => {
       assert.equal(
         currentCount,
         initialCounterValue + 4,
-        `Counter should increment by 4 after second NFT (from ${initialCounterValue} to ${initialCounterValue + 4})`
+        `Counter should increment by 4 after`
       );
     });
 
@@ -337,7 +337,7 @@ describe("nft-shop", () => {
       assert.equal(
         currentCount,
         initialCounterValue + 6,
-        `Counter should increment by 6 after third NFT (from ${initialCounterValue} to ${initialCounterValue + 6})`
+        `Counter should increment by 6 after`
       );
     });
   });
@@ -350,17 +350,11 @@ describe("nft-shop", () => {
 
       const finalCount = mintCountAccount.mintCount.toNumber();
 
-      console.log("Final Counter State:");
-      console.log("  Started at:", initialCounterValue);
-      console.log("  Ended at:", finalCount);
-      console.log("  Total NFTs Minted This Run:", finalCount - initialCounterValue);
-      console.log("  Counter PDA:", mintCountPda.toString());
-      console.log("  Mint Authority PDA:", mintAuthorityPda.toString());
 
       assert.equal(
         finalCount,
         initialCounterValue + 6,
-        `Counter should have incremented by 6 total (from ${initialCounterValue} to ${initialCounterValue + 6})`
+        `Counter should have incremented by 6 total`
       );
     });
 
