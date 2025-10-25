@@ -1,13 +1,3 @@
-# Turbin3 Pre-Builder Q425
-
-## Practice Repo
-
-Contains practice projects and solutions as part of the Turbin3 Pre-Builder program preparation.
-
-- Rustling solutions
-- Rust book projects
-- [NFT Shop](./nft-shop) - (Inspired from Official Solana bootcamp 2024)
-
 ## NFT Shop Program
 
 NftShop creates and mints NFT collections on the Solana blockchain.
@@ -20,7 +10,7 @@ NftShop creates and mints NFT collections on the Solana blockchain.
 
 ### Program Flow
 
-![Sequence Diagram](./flow-seq.png)
+![Sequence Diagram](../flow-seq.png)
 
 
 ### Running Tests
@@ -28,4 +18,3 @@ NftShop creates and mints NFT collections on the Solana blockchain.
 ```bash
 anchor t
 ```
-
