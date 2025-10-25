@@ -26,7 +26,6 @@ NftShop creates and mints NFT collections on the Solana blockchain.
 ### Running Tests
 
 ```bash
-yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts
+anchor t
 ```
 
-# TurbinePB_Q425
