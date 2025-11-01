@@ -32,7 +32,7 @@ use crate::MintCount;
 #[derive(Accounts)]
 pub struct MintNft<'info> {
     #[account(mut)]
-    pub owner: Signer<'info>,
+    pub owner: Signer<'info>, // Wallet account
     #[account(
         init,
         payer = owner,
@@ -40,14 +40,14 @@ pub struct MintNft<'info> {
         mint::authority = mint_authority,
         mint::freeze_authority = mint_authority,
     )]
-    pub mint: Account<'info, Mint>,
+    pub mint: Account<'info, Mint>, // Mint account
     #[account(
         init,
         payer = owner,
         associated_token::mint = mint,
         associated_token::authority = owner
     )]
-    pub destination: Account<'info, TokenAccount>,
+    pub destination: Account<'info, TokenAccount>, // Associated token account
     #[account(mut)]
     /// CHECK: This account will be initialized by the metaplex program
     pub metadata: UncheckedAccount<'info>,
@@ -62,12 +62,13 @@ pub struct MintNft<'info> {
     pub mint_authority: UncheckedAccount<'info>,
     #[account(mut)]
     pub collection_mint: Account<'info, Mint>,
+    
     #[account(
         mut,
         seeds = [b"mint_count"],
         bump,
     )]
-    pub mint_count: Account<'info, MintCount>, // <-- infamous counter
+    pub mint_count: Account<'info, MintCount>, // <-- infamous counter PDA
     pub system_program: Program<'info, System>,
     pub token_program: Program<'info, Token>,
     pub associated_token_program: Program<'info, AssociatedToken>,
@@ -169,9 +170,6 @@ pub fn process_min_nft(ctx: Context<MintNft>) -> Result<()> {
     );
     master_edition_account.invoke_signed(signer_seeds)?;
     
-    // Increment the mint counter
-    ctx.accounts.mint_count.mint_count = ctx.accounts.mint_count.mint_count.checked_add(1)
-        .ok_or(ProgramError::ArithmeticOverflow)?;
 
     let amount = ctx.accounts.mint_count.mint_count;
     msg!("Minting NFT #{}", amount);

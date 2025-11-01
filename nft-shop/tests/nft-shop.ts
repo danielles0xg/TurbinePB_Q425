@@ -202,11 +202,10 @@ describe("nft-shop", () => {
         mintCountPda
       );
       const currentCount = mintCountAccount.mintCount.toNumber();
-      // Note: Counter increments by 2 per NFT mint (collection mint setup + actual NFT)
       assert.equal(
         currentCount,
-        initialCounterValue + 2,
-        `Counter should increment by 2 after first NFT `
+        initialCounterValue + 1,
+        `Counter should increment by 1 after first NFT `
       );
 
       // Verify NFT was minted
@@ -220,7 +219,7 @@ describe("nft-shop", () => {
       );
     });
 
-    it("Mints a second NFT and increments counter to 2", async () => {
+    it("Mints a second NFT and increments counter to 1", async () => {
       // Generate mint for second NFT
       const nftMint = anchor.web3.Keypair.generate();
 
@@ -269,15 +268,14 @@ describe("nft-shop", () => {
 
       console.log("Second NFT minted:", tx);
 
-      // Verify counter incremented to 2
       const mintCountAccount = await program.account.mintCount.fetch(
         mintCountPda
       );
       const currentCount = mintCountAccount.mintCount.toNumber();
       assert.equal(
         currentCount,
-        initialCounterValue + 4,
-        `Counter should increment by 4 after`
+        initialCounterValue + 2,
+        `Counter should increment by 2 after`
       );
     });
 
@@ -336,8 +334,8 @@ describe("nft-shop", () => {
       const currentCount = mintCountAccount.mintCount.toNumber();
       assert.equal(
         currentCount,
-        initialCounterValue + 6,
-        `Counter should increment by 6 after`
+        initialCounterValue + 3,
+        `Counter should increment by 3 after`
       );
     });
   });
@@ -349,11 +347,9 @@ describe("nft-shop", () => {
       );
 
       const finalCount = mintCountAccount.mintCount.toNumber();
-
-
       assert.equal(
         finalCount,
-        initialCounterValue + 6,
+        initialCounterValue + 3,
         `Counter should have incremented by 6 total`
       );
     });
