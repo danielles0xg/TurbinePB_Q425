@@ -47,8 +47,21 @@ impl PositiveNonzeroInteger {
 }
 
 // TODO: Add the correct return type `Result<(), Box<dyn ???>>`. What can we
+// dyn - Dynamic Dispatch
+
+// Box = heap-allocated pointer (ownership of the error)
+// dyn Error = any type that implements the Error trait
+// This allows functions to return different error types at runtime
+// Both ParseIntError and CreationError implement Error, so both can be boxed
+// Key Points
+// dyn = runtime polymorphism (like interfaces in other languages)
+// Must be behind a pointer (Box, &, Arc) due to unknown size
+// Small performance cost (vtable indirection) vs generics
+// Enables returning/storing multiple types that share a trait
+// In errors5.rs, Box<dyn Error> lets main() return either ParseIntError or CreationError since both implement Error.
+
 // use to describe both errors? Is there a trait which both errors implement?
-fn main() {
+fn main() -> Result<(), Box<dyn Error>>{
     let pretend_user_input = "42";
     let x: i64 = pretend_user_input.parse()?;
     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
