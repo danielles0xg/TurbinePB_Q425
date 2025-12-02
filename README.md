@@ -4,7 +4,7 @@
 
 ### What? The opportunity
 
-- Opportunity: Exploit the 10x latency advantage of Fogo (40ms blocks) over Solana (400ms blocks) combined with funding rate differentials between Drift Protocol (Solana) and Ambient Finance (Fogo) for delta-neutral perpetual futures arbitrage.                                                                                                                                                        
+- Opportunity: Exploit the 10x latency advantage of Fogo (40ms blocks) over Solana (400ms blocks) combined with funding rate differentials between Drift Protocol (Solana) and Ambient Finance (Fogo) for a delta-neutral strategy on perpetual futures (long on positive/short on negative funding rates)                                                                                                                                                        
 - Note: Assuming this project will represent a capstone, the POC will demonstrate a minimal but complete profitable opportunity between Delta's funding rates. The emphasis of the demo will be on showing the scalability potential of the concept to become a full, polished product.
 
 ## WHY: The Structural Edge
