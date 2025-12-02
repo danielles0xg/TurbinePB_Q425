@@ -80,6 +80,27 @@
       - Cross-chain execution coordination
       - Risk management & position tracking
 
+  Alpha Flow:
+```
+  t=0ms     Binance (CEX)      ← Price moves HERE first (largest liquidity)
+                │
+                ▼
+  t=10ms    Pyth Oracle        ← Detects CEX price change
+                │
+        ┌───────┴───────┐
+        ▼               ▼
+  t=40ms   FOGO         │      ← Receives oracle update (40ms block)
+                │       │
+                │       ▼
+  t=400ms       │    SOLANA    ← Receives oracle update (400ms slot)
+```
+  Why This Matters:
+
+  1. Price discovery happens on CEX first - Binance has the deepest liquidity, so prices move there before anywhere else
+  2. Pyth oracle aggregates CEX prices - It pulls from Binance, Coinbase, OKX etc. and pushes to chains
+  3. Fogo receives updates 360ms before Solana - Because 40ms blocks vs 400ms slots
+  4. We don't trade on Binance - We only use it conceptually to show WHY there's an information edge
+
 ---
 ---
 ---
