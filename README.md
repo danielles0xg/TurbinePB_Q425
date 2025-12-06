@@ -2,12 +2,15 @@
 
 ## Capstone Letter of Intent:  Cross-Chain Funding Rate Arbitrage System
 
-### What? The opportunity
+### What?
 
-- Opportunity: Exploit the 10x latency advantage of Fogo (40ms blocks) over Solana (400ms blocks) combined with funding rate differentials between Drift Protocol (Solana) and Ambient Finance (Fogo) for a delta-neutral strategy on perpetual futures (long on positive/short on negative funding rates)                                                                                                                                                        
+#### The Hypothesis
+
+- Exploit funding rate differentials between Drift (Solana) and Ambient (Fogo) using pre-positioned capital. The latency difference enables faster position entry on Fogo, but the primary alpha comes from persistent funding rate spreads between retail-dominated Solana and institutional-focused on Fogo                                                                                                                                                  
 - Note: Assuming this project will represent a capstone, the POC will demonstrate a minimal but complete profitable opportunity between Delta's funding rates. The emphasis of the demo will be on showing the scalability potential of the concept to become a full, polished product.
 
-## WHY: The Structural Edge
+### Why? 
+#### The Structural Edge
 
      │ Chain Performance Comparison (Current Data)                                                                                                      │
      │                                                                                                                                                  │
