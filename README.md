@@ -4,6 +4,8 @@ Contains practice projects and solutions as part of the Turbin3 Pre-Builder prog
 
 - Rustling solutions
 - Rust book projects
+  - minigrep
+  - [Server](https://github.com/danielles0xg/web-server-rust)
 - [NFT Shop](./nft-shop) - (Inspired from Official Solana bootcamp 2024)
 
 ## NFT Shop Program
